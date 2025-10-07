@@ -1,0 +1,52 @@
+Týden 1 - Úvod a rekapitulace předpokladů
+    * Reálná čísla, vlastnosti operací, absolutní hodnota
+    * Intervaly, horní a dolní mez, hustota racionálních čísel
+
+Týden 2 - Funkce
+    * Definice funkce, obor a obor hodnot
+    * Typy funkcí: lineární, kvadratické, polynomické, exponenciální, logaritmické, goniometrické
+    * Operace s funkcemi (součet, součin, složení)
+
+Týden 3 - Limity funkcí
+    * Definice limitní hodnoty 
+    * Limita zleva a zprava
+    * Limity v nekonečnu, základní vlastnosti
+
+Týden 4 - Kontinuita
+    * Kontinuita v bodě a na intervalu
+    * Typy přerušení
+    * Bolzanova věta (střední hodnota)
+
+Týden 5 - Základní derivace
+    * Definice derivace jako limitního poměru
+    * Derivace základních funkcí (polynomické, exponenciální, logaritmické)
+    * Geometrická interpretace (tangentní přímka)
+
+Týden 6 - Pravidla derivování
+    * Součet, součin, podíl, řetězové pravidlo
+    * Derivace vyšších řádů
+
+Týden 7 - Aplikace derivací
+* Extrémy funkce, monotónnost, konvexita a konkávnost
+* Body inflexe a lokální extrémy
+
+Týden 8 - Úvod do integrace
+    * Neurčitý integrál
+    * Základní integrační vzorce
+    * Lineární vlastnosti integrálu
+
+Týden 9 - Určitý integrál
+    * Definice určitého integrálu
+    * Geometrická interpretace: plocha pod křivkou
+    * Newton-Leibnizova věta
+
+Týden 10 - Řady funkcí
+    * Mocninné řady, konvergence řad
+    * Taylorovy a Maclaurinovy polynomy
+
+Týden 11 - Integrace řad a derivace řad
+    * Derivace a integrace člen po členu
+    * Přesnost aproximace
+    * Využití mocninných řad pro numerické metody
+
+3 měsíce

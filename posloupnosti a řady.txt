@@ -1,0 +1,23 @@
+Týden 1 - Základy posloupností
+	* Definice posloupnosti 
+	* Explicitní a rekurentní zápis
+
+Týden 2 - Konvergence a vlastnosti posloupností
+	* Limitní hodnota posloupnosti 
+	* Divergentní a konvergentní posloupnosti
+	* Monotónní a omezené posloupnosti
+	* Věta o monotónní posloupnosti
+
+Týden 3 - Řady a částečné součty
+	* Definice řady 
+	* Částečné součty 
+	* Konvergence a divergence řad
+	* Geometrická řada a harmonická řada
+
+Týden 4 - Testy konvergence a vlastnosti řad
+	* Porovnávací test, d’Alembertův test, kořenový test
+	* Alternující řady
+	* Absolutní a podmíněná konvergence
+	* Lineární kombinace řad
+
+1 měsíc

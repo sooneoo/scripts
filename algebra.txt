@@ -1,0 +1,36 @@
+Týden 1 - Základy algebraických výrazů a polynomů
+    * Algebraické výrazy: sčítání, odčítání, násobení, dělení
+    * Polynomy: definice, stupeň, koeficienty
+    * Faktorizace polynomů (lineární a kvadratické)
+
+Týden 2 - Lineární rovnice a operace s polynomy
+    * Řešení lineárních rovnic
+    * Rovnice s absolutní hodnotou
+    * Sčítání, odčítání a násobení polynomů vyššího řádu
+
+Týden 3 - Kvadratické rovnice a evaluace polynomů
+    * Kvadratické rovnice, diskriminant a kořeny
+    * Evaluace polynomů pro zadané x
+    * Faktorizace kvadratických a kubických polynomů
+
+Týden 4 - Nerovnice a testování polynomů
+    * Lineární a kvadratické nerovnice
+    * Nerovnice s absolutní hodnotou
+    * Testování hodnot polynomů na intervalech
+
+Týden 5 - Soustavy rovnic a polynomické soustavy
+    * Lineární soustavy rovnic 2x2
+    * Substituce a dosazení
+    * Soustavy polynomů (dvou proměnných) - základní přehled
+
+Týden 6 - Dělení polynomů a syntetická substituce
+    * Dělení polynomů s celočíselným nebo polynomickým zbytkem
+    * Syntetická substituce a Hornerova metoda
+    * Vyhledání kořenů polynomů
+
+Týden 7 - Funkce a polynomické funkce
+    * Lineární, kvadratické a polynomické funkce
+    * Grafy funkcí, průběh, maximum, minimum, průsečíky
+    * Kombinace všech principů: algebra, polynomy, rovnice, nerovnice, soustavy
+
+2 - měsíce

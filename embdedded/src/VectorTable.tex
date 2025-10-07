@@ -1,0 +1,27 @@
+\chap Vektorová tabulka
+Vektorová tabulka je kritická datová struktura v paměti mikrokontroléru, která slouží jako most mezi hardwarem a softwarovou obsluhou událostí. Je to pole ukazatelů, z nichž každý ukazuje na specifickou funkci, která se nazývá {\bf obsluha (handler)}. Tyto handlery se spouštějí v reakci na události, jako je reset procesoru, systémová chyba nebo přerušení od periférie.
+
+Koncept vektorové tabulky je platformně závislý, to znamená, že každý kontroler nebo procesor bude obsahovat jiný mechanismus fungování vektorové tabulky, ale základní pricip je většinou stejný.
+
+\sec Jak to funguje
+
+Při výskytu události, kterou procesor vyžaduje, jako například externí přerušení (například stisk tlačítka), procesor okamžitě přeruší svou aktuální činnost. Místo toho, aby se snažil událost vyřešit sám, podívá se do své vektorové tabulky. Podle typu události najde v tabulce příslušnou adresu handleru a skočí na tuto adresu, aby provedl příslušnou funkci.
+
+Jakmile je obslužná funkce dokončena, procesor se vrátí a pokračuje v původní činnosti, jako by se nic nestalo. Tento mechanismus umožňuje efektivní multitasking, aniž by procesor musel neustále kontrolovat stav každé periferie.
+
+\sec Obecná struktura
+Přesná struktura a pořadí záznamů ve vektorové tabulce se liší v závislosti na konkrétní architektuře (např. ARM, RISC-V, AVR). Většina tabulek však obvykle zahrnuje následující typy záznamů:
+\begitems
+* {\bf Vstupní bod programu}: Ukazatel na první instrukci, která se má provést po spuštění nebo resetu systému. V některých architekturách je to přímo adresa reset handleru, v jiných je to adresa zásobníku.
+* {\bf Systémové obsluhy}: Adresy funkcí pro obsluhu systémových událostí nebo chyb, jako je například dělení nulou.
+* {\bf Obsluhy přerušení}: Adresy pro obsluhu přerušení od různých periferií, jako je například UART, SPI, časovač nebo AD převodník.
+\enditems
+
+Většina procesorů má vektorovou tabulku umístěnou na pevně dané adrese v paměti (obvykle na jejím začátku), aby ji procesor mohl snadno najít ihned po zapnutí.
+
+\sec Vektorová tabulka v kontextu programování
+Úkolem systémového programátora je vyplnit tuto tabulku správnými adresami. To znamená napsat obslužné funkce pro události, na které je reagovat, a pak zajistit, aby linker správně umístil adresu těchto funkcí do příslušných pozic ve vektorové tabulce. Bez správně nakonfigurované a umístěné vektorové tabulky by procesor nebyl schopen spustit program ani reagovat na externí události, což by vedlo k nefunkčnímu systému.
+
+Pro nastavení kde má být v paměti procesoru/kontroleru vektorová tabulka umístěná slouží {\bf linker script}.
+
+

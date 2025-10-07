@@ -1,0 +1,44 @@
+Týden 1 - Vektory a operace s nimi
+    * Definice vektoru, souřadnice, velikost, směrový vektor
+    * Sčítání, odčítání, násobení skalárem
+    * Lineární kombinace vektorů
+    * Lineární nezávislost
+
+Týden 2 - Matice a jejich operace
+    * Definice matice, typy matic (čtvercová, jednotková, diagonální, nulová)
+    * Sčítání, odčítání, násobení matic a skalárem
+    * Transpozice matice
+
+Týden 3 - Determinanty a rank matice
+    * Determinanty 2×2 a 3×3, Laplaceův rozvoj
+    * Vlastnosti determinantů (řádky, sloupce, násobení, transpozice)
+    * Rank matice, spojitost s lineární nezávislostí
+
+Týden 4 - Inverzní matice a řešení soustav
+    * Inverzní matice (existence pouze pro čtvercové, plného ranku)
+    * Řešení soustav lineárních rovnic
+    * Gaussova eliminace, Cramerovo pravidlo
+
+Týden 5 - Vektorové prostory a podprostory
+    * Definice vektorového prostoru a podprostoru
+    * Lineární nezávislost, báze, dimenze
+    * Podprostory: sloupcový prostor, nulový prostor, řádkový prostor
+
+Týden 6 - Lineární transformace
+    * Definice lineární transformace
+    * Matice lineární transformace
+    * Jádro a obraz transformace
+    * Kompozice a inverze transformace
+
+Týden 7 - Vlastní čísla a vlastní vektory
+    * Definice vlastních čísel a vlastních vektorů
+    * Charakteristický polynom
+    * Diagonalizace matice
+
+Týden 8 - Skalarni součin, ortogonalita a projekce
+    * Skalarni součin, norma vektoru
+    * Úhel mezi vektory
+    * Ortogonální a ortonormální báze
+    * Projekce vektoru na podprostor
+
+2 měsíce

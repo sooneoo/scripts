@@ -1,0 +1,59 @@
+Týden 1 - Základní axiomy množin
+    Axiomy ZF/ZFC: existence prázdné množiny, omezení paradoxů.
+    Základní operace: sjednocení, průnik, doplněk.
+    Cvičení: jednoduché příklady vlastností množin.
+
+Týden 2 - Podmnožiny, kartézský součin a relace
+    Podmnožiny, kartézský součin, relace.
+    Vlastnosti relací (reflexivní, symetrická, tranzitivní).
+    Cvičení: dokazuj vlastnosti relací a funkcí.
+
+Týden 3 - Funkce a konstrukce čísel
+    Funkce mezi množinami, zobrazení, injekce, surjekce.
+    Konstrukce přirozených, celých a racionálních čísel pomocí množin.
+    Cvičení: dokázat základní vlastnosti funkcí a čísel.
+
+Týden 4 - Formální systémy a axiomatická logika
+    Axiomy, pravidla inference, struktura formálního důkazu.
+    Aplikace na tvrzení o množinách.
+    Cvičení: sestav jednoduchý formální důkaz z axiomů množin.
+
+Týden 5 - Důkazové strategie
+    Přímý důkaz, důkaz sporem, konstrukční důkaz.
+    Použití axiomatických principů existence.
+    Cvičení: dokázat existenci konkrétní množiny nebo funkce.
+
+Týden 6 - Logická výstavba matematiky
+    Formální definice objektů: množiny, funkce, relace, algebraické struktury.
+    Odvozování vlastností z axiomů.
+    Cvičení: zapisuj a dokazuj vlastnosti nově definovaných objektů.
+
+Týden 7 - Princip indukce a transfinální indukce
+    Indukce pro přirozená čísla, transfinální indukce pro ordinály.
+    Aplikace: dokazování vlastností funkcí a relací.
+
+Týden 8 - Pokročilé konstrukce množin
+    Sjednocení, průnik, mocninná množina, omezený axiomatický princip porozumění.
+    Cvičení: tvoření konkrétních množin a dokazování jejich vlastností.
+
+Týden 9 - Teorie modelů
+    Model a interpretace axiomatického systému.
+    Kontrola konzistence jednoduchých modelů množin.
+    Cvičení: ověřit, zda axiomy platí v konkrétním modelu.
+
+Týden 10 - Konzistence a splnitelnost
+    Konzistence systému, splnitelnost, nezávislost jednoduchých axiomů.
+    Cvičení: analyzuj hypotetické modely množin.
+
+Týden 11 - Úplnost a nezávislost axiomu
+    Úplnost systému, krátký přehled nezávislých axiomatických principů.
+    Cvičení: jednoduché příklady nezávislých axiomů.
+
+Týden 12 - Shrnutí a komplexní aplikace
+    Propojení logiky a množinové teorie.
+    Cvičení: konstrukce nového objektu (funkce, relace, algebraická struktura) a rigorózní důkaz vlastností.
+    Shrnutí axiomů, důkazových metod a modelů.
+
+
+
+3 měsíce

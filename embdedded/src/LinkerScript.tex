@@ -1,0 +1,55 @@
+\chap Linker script
+Linker skript je textový soubor, který řídí, jak linker (program, který spojuje zkompilovaný kód a knihovny do spustitelného souboru) uspořádá různé části (sekce) výsledného programu v paměti mikrokontroléru. V embedded programování je to klíčový nástroj, protože vám umožňuje přesně definovat, kam se kód a data uloží, což je nezbytné pro efektivní využití omezené paměti.
+
+\sec Základní koncepty a struktura
+Linker skript se typicky skládá ze tří hlavních částí: MEMORY, SECTIONS a ENTRY.
+
+\secc MEMORY
+Tato sekce popisuje fyzické paměťové oblasti, které má mikrokontrolér k dispozici, jako je FLASH (pro programový kód a konstanty) a RAM (pro proměnné a zásobník). Pro každou oblast definujete její název, počáteční adresu (ORIGIN) a velikost (LENGTH).
+
+Například:
+
+\begtt
+MEMORY
+{
+  FLASH (rx) : ORIGIN = 0x08000000, LENGTH = 128K
+  RAM (rwx) : ORIGIN = 0x20000000, LENGTH = 20K
+}
+\endtt
+
+V tomto příkladu má FLASH počáteční adresu 0x08000000 a velikost 128K, a RAM začíná na 0x20000000 s velikostí 20K. Atributy jako {\it (rx)} a {\it (rwx)} určují, zda je paměťová oblast čitelná, zapisovatelná nebo spustitelná.
+
+
+Obecně se příkaz zapisuje takto: 
+\begtt
+MEMORY
+  {
+    name [(attr)] : ORIGIN = origin, LENGTH = len
+    …
+  }
+\endtt
+
+Popisek "name" odkazuje na název regionu používaný v linker scriptu. Nastavení "attr" je volitený seznam atributů, které nastavují vlastnosti daného sektoru. Tyto parametry mohou být:
+\begitems
+* 'r' - oddíl pouze pro čtení, například pro FLASH kam se zapisuje seznam instrukcí tvořící program.
+* 'w' - oddíl pro čtení i zápis, například oddíl RAM, který uchovává data, která vznikají za běhu programu
+* 'x' - oddíl může obsahovat instrukce programu, které mohou být vykonávány procesorem
+* 'a' - alokovatelná sekce
+* 'i' - inicializovaná sekce
+* '!' - obrátí platnost každé atributu, který následuje
+\enditems
+
+\secc SECTIONS
+Toto je nejdůležitější část. Popisuje, jak linker přebírá vstupní sekce z objektových souborů (zkompilovaný kód) a spojí je do výstupních sekcí ve výsledném spustitelném souboru. Každý objektový soubor vytvořený kompilátorem obsahuje své vlastní sekce (například .text pro kód, .data pro inicializovaná data a .bss pro neinicializovaná data). Funkce linkeru je sloučit všechny tyto vstupní sekce ze všech objektových souborů do jedné jediné výstupní sekce ve finálním spustitelném souboru. Linker skript mu pak k tomu dává přesné pokyny jak to má udělat.
+
+Standardní sekce zahrnují:
+
+\begitems
+* {\bf .text}: Obsahuje kód programu. Typicky se umisťuje do FLASH paměti, protože se nemusí měnit za běhu, ale data se musejí uchovávat i po vypnutí napájení.
+* {\bf .rodata}: Obsahuje data pouze pro čtení (např. konstanty, textové řetězce). Také se umisťuje do FLASH.
+* {\bf .data}: Obsahuje inicializované globální proměnné. Tyto proměnné se sice za běhu mění a jsou proto v RAM, ale jejich počáteční hodnoty musí být uloženy ve FLASH paměti, aby se po startu mikrokontroléru mohly zkopírovat.
+* {\bf .bss}: Obsahuje neinicializované globální proměnné. Na začátku programu se tato oblast vynuluje. Tyto proměnné existují pouze v RAM a nezabírají místo ve FLASH.
+\enditems
+
+\secc ENTRY
+Tento příkaz definuje vstupní bod do programu, tedy první instrukci, která se má provést po spuštění mikrokontroléru.

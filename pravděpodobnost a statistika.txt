@@ -1,0 +1,55 @@
+Týden 1 - Základy pravděpodobnosti
+    * Pravděpodobnostní prostor 
+    * Děje a operace s nimi (sjednocení, průnik, doplněk)
+    * Axiomy pravděpodobnosti
+    * Podmíněná pravděpodobnost a Bayesova věta
+
+Týden 2 - Nezávislost a kombinatorika
+    * Nezávislost dějů
+    * Kombinatorika: permutace, kombinace
+    * Pravděpodobnost složených dějů
+
+Týden 3 - Diskrétní náhodné veličiny
+    * Definice a PMF (pravděpodobnostní funkce)
+    * Binomické, geometrické, Poissonovo rozdělení
+    * Matematické očekávání a rozptyl
+
+Týden 4 - Spojité náhodné veličiny
+    * Hustota pravděpodobnosti (PDF)
+    * Normální, exponenciální a uniformní rozdělení
+    * Funkce distribuční (CDF)
+    * Očekávaná hodnota a rozptyl
+
+Týden 5 - Vektory náhodných veličin a závislosti
+    * Společné rozdělení dvou náhodných veličin
+    * Kovarance a korelace
+    * Podmíněná rozdělení, nezávislost
+    *Lineární kombinace náhodných veličin
+
+Týden 6 - Zákony velkých čísel
+    * Slabý a silný zákon velkých čísel
+    * Příklady aplikace: průměr z velkého množství vzorků
+    * Centrální limitní věta (CLT)
+
+Týden 7 - Bodové a intervalové odhady
+    * Bodový odhad (MLE)
+    * Intervalové odhady (konfidenční intervaly)
+    * Rozdělení středních hodnot
+
+Týden 8 - Testování hypotéz
+    * Základní koncept: nulová a alternativní hypotéza
+    * t-test, chi-kvadrát test, F-test
+    * P-hodnota a významnost
+
+Týden 9 - Bayesovské modely
+    * Bayesovské odhady a Bayesovská pravděpodobnost
+    * Naive Bayes klasifikátor
+    * Praktické využití v ML
+
+Týden 10 - Regrese a korelace
+    * Lineární regrese (jednorozměrná a vícerozměrná)
+    * Metoda nejmenších čtverců
+    * Korelace mezi proměnnými
+    * Logistická regrese
+
+3 měsíce

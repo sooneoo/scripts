@@ -1,0 +1,26 @@
+1 Číselné soustavy (základní)
+    * Desítková, binární, hexadecimální
+    * Převody mezi soustavami
+    * Aritmetika v daném základu (sčítání, násobení, dělení)
+
+2 Parita a dělitelnost
+    * Sudá/lichá čísla
+    * Dělitelnost 2,3,5,9 a dalších čísel s jednoduchými pravidly
+    * Kombinace pravidel a testování vlastností
+
+3 Speciální čísla
+    * Dokonalá čísla (součet dělitelů = číslo)
+    * Složená čísla vs. prvočísla
+    * Faktoriální čísla, mocniny
+
+4 Rozklad na součin a vlastnosti čísel
+    * Prvočíselný rozklad
+    * Největší společný dělitel a nejmenší společný násobek
+    * Vztah mezi dělitelností a modularitou
+
+5 Modularita a kongruence
+    * Operace modulo, vlastnosti kongruencí
+    * Eulerova funkce, Fermatova malá věta
+    * Aplikace: testy dělitelnosti, kontrolní součty
+
+1,3 měsíce 
