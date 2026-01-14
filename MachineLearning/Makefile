@@ -1,6 +1,6 @@
 TEX=pdfcsplain
 SRC=src
-TARGET=Logic
+TARGET=MachineLearning
 OUTPUT=pdf
 
 
@@ -14,5 +14,3 @@ clean:
 
 env:
 		mkdir -pv $(OUTPUT)
-
-

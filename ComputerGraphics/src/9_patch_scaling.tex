@@ -1,0 +1,25 @@
+\chap 9-slice scaling
+Technika 9-slice scaling (škálování devíti částí) je klíčový koncept v počítačové grafice a vývoji uživatelského rozhraní (UI), který řeší základní problém: jak efektivně měnit velikost grafických rámečků (např. tlačítek, dialogových oken, bublin s textem), aniž by došlo k deformaci jejich ozdobných rohů a okrajů.
+
+\sec Princip funkce
+Při tradičním škálování celého obrázku by se jeho rohy a hrany roztáhly a rozmazaly, což by vedlo k nekonzistentnímu a nekvalitnímu vzhledu. 9-Patch to obchází rozdělením zdrojové textury na mřížku $3x3$, tedy na devět nezávislých segmentů:
+
+\picw=.7\hsize \centerline{\inspic \imgpath 9-slice_scaling.png }\nobreak\medskip
+\caption/f Rozdíl mezi tradičním škálováním a 9-slice scaling.
+
+Při vykreslování se s každým segmentem zachází specifickým způsobem podle jeho polohy:
+\begitems 
+* {\bf Rohové Segmenty (1, 3, 7, 9)}: Tyto čtyři segmenty se nikdy neškálují. Jsou vykresleny v původní velikosti (SxS pixelů), což zaručuje, že dekorativní rohy zůstanou vždy ostré a neporušené, bez ohledu na výslednou velikost celého prvku.
+* {\bf Okrajové Segmenty (2, 4, 6, 8)}: Tyto čtyři segmenty jsou jednosměrně škálovatelné.  2 a 8 (horní a dolní) se škálují pouze horizontálně (na šířku). 4 a 6 (levý a pravý) se škálují pouze vertikálně (na výšku). Tím zajistí, že se grafický prvek roztáhne na požadovanou délku/výšku.
+* {\bf Středový Segment (5)}: Tento segment je obousměrně škálovatelný. Roztahuje se horizontálně i vertikálně do vnitřního prostoru, čímž vyplní celou plochu cílového prvku. Typicky jde o jednobarevnou nebo průhlednou plochu, kam se následně vykresluje text.
+\enditems
+
+\sec Výhody použití 9-slice scaling
+\begitems
+* {\bf Konzistence}: Grafika UI prvků je dokonale konzistentní bez ohledu na jejich velikost.
+* {\bf Efektivita}: Je zapotřebí pouze jedna malá textura pro neomezený počet různých tlačítek, což šetří paměť a zrychluje načítání.
+* {\bf Flexibilita}: Umožňuje dynamické generování UI prvků (např. tlačítko se automaticky zvětší, pokud se změní text z "OK" na "Uložit hru a ukončit").
+\enditems
+
+
+

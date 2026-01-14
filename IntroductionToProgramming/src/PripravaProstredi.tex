@@ -1,67 +1,65 @@
 \chap {Příprava prostředí pro vývoj v jazyce C}
-Prostředí pro programování v jazyce C je možné připravit na jakémkoli počítači s pomocí nástrojů, které jsou zdarma ke stažení z internetu. V základu se jedná o kompilátor {\bf gcc}, který má za úkol převést zdrojový kód na spustitelný soubor a nástroj pro usnadnění a automatizaci překladu {\bf make}. 
+Prostředí pro programování v jazyce C je možné připravit na jakémkoli počítači s pomocí nástrojů, které jsou zdarma ke stažení z internetu. V základu se jedná o kompilátor {\bf gcc} (případně alternativní clang), který má za úkol převést zdrojový kód na spustitelný soubor a vývojové prostředí ve kterém s pomocí kterého se zapisuje kód programu. 
 
-\sec {Příprava prostředí na MS Windows}
-Na systémech MS Windows je nejjednodušší způsob pro nastavení prostředí pro vývoj v jazyce C použít program {\bf msys2} (\url {https://www.msys2.org/}). Tento program vytvoří strukturu nástrojů, které jsou k dispozici na systémech Linux. Po instalaci je třeba nejprve třeba nastavit systém, aby mohl vyhledat nástroje, které se do počítače nainstalovali. K tomu je nutné upravit {\bf proměnnou prostředí PATH}, do které je třeba přidat dvě nové cesty. Proměnné prostředí je možně upravovat zadáním příkazu do nabídky start: {\it upravit proměnné prostředí systému}
 
-\vskip 5mm
-\picw=.7\hsize \centerline{\inspic {\imgpath setup_environment_variables.png} }\nobreak\medskip
-\caption/f Nastavení proměnné prostředí Path
+\sec {Vývojové prostředí}
+Vývojové prostředí, anglicky {\bf Integrated Development Environment} - {\bf IDE} je podpůrný nástroj, který programátorům usnadňuje psaní kódu, spravovat projekty a automatizovat překlad zdrojových kódů do spustitelné podoby. Jedná se o textový editor, který umožňuje barevně zvírazňovat syntaxy použitého programovacího jazyka, doplňovat název příkazu nebo identifikátoru a podobně.
 
-Poté se otevře okno pro nastavení proměnných prostředí ve kterém je tlačítko {\bf Proměnné prostředí}, které otevře okno s proměnnými prostředí, které jsou v systému vytvořené. V sekce {\bf Uživatelské proměnné} se nachází výčet proměnných prostředí pro aktuálně přihlášeného uživatele a mezi nimi se nachází proměnné {\bf Path}. Po jejím označení je třeba stisknout tlačítko upravit. Následně by se mělo otevřít okno pro úpravu hodnot v této proměnné. Nyní je nutné přidat dvě nové cesty pomocí tlačítka {\bf Nový} a nastavit jejich hodnotu na: 
-\begtt 
-C:\msys2\usr\bin 
-\endtt 
- 
-\begtt 
-C:\msys2\mingw64\bin 
-\endtt 
-
-Následně stačí jen vše uložit stiskem tlačítka OK a cesty k nástrojům systému msys2 by měly být nastavené.
+\sec {Code::Blocks IDE} 
+Nejjednodušší IDE pro jazyk C je {\bf Code::Blocs IDE}, který, je buď ve formě instalovaná do systému, nebo přenositelná forma, kterou je možné si uložit na flashdisk a přenést jednoduše bez instalace na jiný systém. Zároveň je Code::Blocs poskytován ve variantě buď jako samostné IDE, který si automaticky vyhledá kompilátor a další nástroje instalované v systému a nebo ve variantě, která si sebou nese všechny potřebné nástroje, které jsou pro programování v jazyce C potřeba. Taková varianta Code::Blocks je pak okamžitě po stažení připravená k programování.
 
 \vskip 5mm
-\picw=.9\hsize \centerline{\inspic {\imgpath environment_variables.png} }\nobreak\medskip
-\caption/f Okno pro nastavení proměnných prostředí
+\picw=.9\hsize \centerline{\inspic {\imgpath codeblocs_start_page.png} }\nobreak\medskip
+\caption/f Úvodní obrazovka Code::Blocs IDE
 
-Nově nastavené cesty je možné věřit otevřením příkazové řádky pomocí zadání příkazu {\it cmd} do nabídky start a zadat příkaz, který by měl provést aktualizaci systému msys2:
-\begtt
-$ pacman -Syu
-\endtt
+\secc {Instalace a stažení}.
+Code::Blocks je možné zdarma stáhnout z webových stránek: \url{http://www.codeblocks.org/}. 
 
-(Prosím nekopírujte příkaz se znakem \$, ten značí že se jedná o terminálový vstup)\par
-V případě, že jsou cesty správně nastavené by se měl spustit balíčkový správce {\it pacman}, který slouží k instalaci a aktualizaci programů do prostředí msys2 a požádá vás o potvrzení spuštění instalace aktualizací:
+Při prvním spuštění pravděpodobně IDE otevře okno kde uživatele informuje o nalezených vývojových nástrojích a dotáže se zda chceme soubory zdrojových kódů s koncovkou {\it *.c} (zdrojové soubory) a {\it *.h} (hlavičkové soubory) asociovat s programem Code::Blocs (aby se po dvojkliku myší soubory otevýraly v programu Code::Blocs). Obě tato okna stačí jednoduše odkliknout a dále se již nebudou zobrazovat.
 
-\vskip 5mm
-\picw=.9\hsize \centerline{\inspic {\imgpath msys2_update.png} }\nobreak\medskip
-\caption/f Okno pro nastavení proměnných prostředí
-
-Aktualizace a jiné instalace se potvrdí prostým stiskem klávesy {\it Enter}.
-
-Po aktualizaci prostředí msys2 je potřeba nainstalovat kompilátor pro jazyk C {\bf gcc}, který má za úkol převést zdrojový k na spustitelný a nástroj pro automatizaci překladu {\bf make}. To se provede zadáním příkazu:
-\begtt
-$ pacman -S gcc make
-\endtt
-
-Některé knihonvy, které jsou použity při programování jsou uloženy na specifické cestě v systému. Ta se může lišit v závislosti na použitém systému (MS Windows s prostředím msys2, GNU Linux, Mac OS). Z tohoto důvodu se využívá pro vyhledání cest k instalovaným knihovnám nástroj {\bf pkg-config}. Nástroj pkg-config využívá malé soubory, které osahují konfiguraci pro knihovnu instalovanou v lokálním systému, které mají příponu .pc a jsou uloženy v konfiguračním adresaři. Na systému msys2, ale nástroj pkg-config neví kde má tyto soubory hledat a je nutné mu je nastavit. K tomu slouží proměnná prostředí {\bf PKG\_CONFIG\_PATH}, kterou je nutné nastavit stejně jako proměnnou prostředí path v předchozím bodě. V tomto případě, jsou konfigurační soubory uloženy v adresáři: 
-\begtt
-C:\msys2\ming64\lib\pkgconfig
-\endtt
-
-\sec {Příprava prostředí na GNU Linux}
-Na systémech Linux bývá často nástroj gcc a make dostupný již v základní instalaci. Z tohoto důvodu je příprava prostředí na vývoj v jazyce C na systémech Linux snazší než na jiných systémech. Pokud nástroje gcc a make není v základní instalaci, záleží na distribuci instalovaného Linuxového systému. 
-
-Na linuxové distribuci Ubuntu je možné nástroje gcc a make instalovat buď prostřednictvím nástroje {\bf Ubuntu Software Center} a nebo pomocí příkazové rádky:
-\begtt
-$ sudo apt install gcc make
-\endtt
-
-\sec {Příprava prostředí na Mac OS}
-
-\sec {IDE}
-Poté co jsou v systému nainstalované nástroje gcc a make je prostředí pro vývoj programů vjazyce C připraveno k použití, ale je potřeba nainstalovat tzv. IDE (Integrated development environment), zjednodušeně řečeno textový editor, který obsahuje nástroje pro zjednodušení psaní zdrojových kódu. Nejjednodušší IDE je {\bf Visual studio code} (\url {https://code.visualstudio.com/}). Jeho instalace je jednoduchá a přímočará. 
+\sec {Založení nového projektu}
+Nový projekt je možné založit jednoduše z úvodní obrazovky kliknutím na tlačítko {\bf Create a new project} a nebo přes menu: {\bf File $\to$ New $\to$ Project} 
 
 \vskip 5mm
-\picw=.9\hsize \centerline{\inspic {\imgpath vs_code.png} }\nobreak\medskip
-\caption/f Visual studio code
+\picw=.9\hsize \centerline{\inspic {\imgpath codeblocs_create_new_project.png} }\nobreak\medskip
+\caption/f Založení projektu
+
+Poté je třeba projít jednoduchým formulářem, do kterého se vyplní požadavky na nový projekt. Nejdříve se vybere typ projektu. Code::Blocs má ve své výchozím stavu připravené velké množství šablon projektů, což může být dost nepřehledné. Proto jsem větší přehlednost všechny ostatní šablony schoval a nechal pouze ty které jsou pro začátek relevantní. V podstatě jsou na výběr dvě možnosti. Buď {\bf Console application}, která vytvoří nejjednodušší možný projekt v jazyce C, bez žádných dodatečných doplňků, komunikující s uživatelem pomocí příkazové řádky (vhodně na jednoduché ukázky kódů, nebo systémové nástroje) a nebo šablona {\bf Raylib}, která připravý projekt pro programování grafického rozhraní. Řaylib je vhodný pro programování počítačové grafiky, tedy například her, nebo nástrojů, které vykreslují nějaký grafický obsah.
+
+\vskip 5mm
+\picw=.7\hsize \centerline{\inspic {\imgpath codeblocs_template.png} }\nobreak\medskip
+\caption/f Šabloba projektu
+
+Následně je potřeba vybrat cílový programovací jazyk projektu. Na výběr je buď jazyk C a nebo C++ (jazyk C++ je komplexnější nadstavba jazyka C). {\bf Při vytváření projektu je třeba vždy vybrat jazyk C!} 
+
+\vskip 5mm
+\picw=.7\hsize \centerline{\inspic {\imgpath codeblocs_language_choose.png} }\nobreak\medskip
+\caption/f Výběr programovacího jazyka
+
+Pak již stačí jen zadat jméno nového projektu (například HelloWorld) a cestu kam se nový projekt uloží. Standardně se pro projekty vytváří pracovní složka, která se běžně nazává {\bf Workspace}, do které se pak budou vytvářet jednotlivé projektové složky ve kterých budou obsaženy jak zdrojvé soubory projektu tak konfigurační soubory Code::Blocs IDE a výsledné přeložené spustitelné soubory. Cestu pro uložení projektu je potřeba nastavit pouze ve chvíli kdy se na systému vytváří projekt poprvé, Code::Blocks si tuto cestu zapamatuje a bude ji pro následující použití předvyplňovat (bude tedy potřeba vyplnit pouze název projektu). 
+
+\vskip 5mm
+\picw=.7\hsize \centerline{\inspic {\imgpath codeblocs_name_and_path.png} }\nobreak\medskip
+\caption/f Zadání názvu a cesty k uložení projektu
+
+\newpage
+Nakonec se zobrazí okno s přehledem a potvrzením pro vytvoření nového projektu. V tuto chvíli stačí již jen stisknout tlačítko {\bf Finish} a nový projekt je vytvořený. 
+
+\vskip 5mm
+\picw=.7\hsize \centerline{\inspic {\imgpath codeblocs_finish.png} }\nobreak\medskip
+\caption/f Dokončení
+
+\sec {Přehled a použití Code::Blocks}
+Prostředí Code::Blocs je relativně intuitivní a přímočaré. V levé části je projektový strom, ve které je zobrazen obsah projektu. Po rozbalení (kliknutí na malý simbol plus) je možné zobrazit seznam souborů. Po vytvoření nového projektu se zde nachází pouze soubor {\bf main.c}. Takto se v jazyce C standardně nazývá hlavní zdrojový soubor kterým začíná vykonávání programu. Po dvojkliku je možné jej otevřít v editoru a následně jej upravovat. 
+
+Nejdůležitější pro programování jsou zvírazněná ovládací tlačítka v obrázku. Tlačítko {\bf Build} v podobě žlutého ozubeného kola slouží pro překlad projektu do spustitelné podoby, to je první krok, aby bylo možné program spustit. Poté co je projekt přeložen ze povolí tlačítko {\bf Run}, které má vzhled zelené šipky. Toto tlačítko pak slouží ke spuštění přeloženého programu. Při běžné práci a v 99\% případů je nejdůležitější tlačítko {\bf Build and run}, které kobinuje žluté ozubené kolečko a zelenou šipku. Toto tlačítko provede překlad a následně spuštění výsledného spustitelného souboru. To znamená, že za normálních okolností stačí používat pouze tlačítko. Pro snadné a rychlé ukončení běžícího programu slouží tlačítko {\bf Abort}, které vypadá jako červené tlačítko s křížkem.
+
+\vskip 5mm
+\picw=.9\hsize \centerline{\inspic {\imgpath codeblocs_overview.png} }\nobreak\medskip
+\caption/f Přehled prostředí Code::Blocks
+
+
+\sec {Otevření existujícího projektu}
+
 
 
