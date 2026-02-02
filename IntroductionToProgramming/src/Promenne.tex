@@ -1,29 +1,158 @@
-\chap {Proměnné}
-Paměť RAM slouží k uložení nejen strojových instrukcí spuštěného programu, ale také k uložení dočasných dat, které si program při svém vykonávání vytváří. Taková dočasná data můžou být mezivýsledky výpočtů, obsah načteného souboru z disku, ... K práci s daty uloženými v paměti RAM slouží tzv. {\bf programové proměnné}. V programování jsou proměnné jedním z nejzákladnějších a nejdůležitějších konceptů. Zjednodušeně si proměnnou lze představit jako pojmenované místo v RAM paměti, na které je možné data ukládat a následně opět přečíst. 
 
+\chap {Proměnné}
+Každý program, aby vůbec mohl fungovat, potřebuje pracovat s daty. Ať už jde o {\bf čísla}, {\bf text}, nebo třeba {\bf obrázky}, všechna tato data je potřeba někde uložit. K tomuto účelu slouží {\bf operační paměť} počítače - {\bf RAM}. Paměť RAM si lze představit jako dlouhou řadu paměťových buněk (byty), které jsou schopné uchovávat libovolnou číselnou hodnotu od 0 do 255. Na každou paměťovou buňku se lze odkázat pomocí její specifické adresy, která definuje umístění v rámci paměti RAM.
+
+
+\vskip 5mm
+\picw=.9\hsize \centerline{\inspic {\imgpath ram.png} }\nobreak\medskip
+\caption/f Schématické zobrazení RAM
+
+Aby nebylo potřeba si v programu pamatovat paměťovou adresu konkrétní paměťové buňky, tedy jaká data jsou na dané paměťové adrese uložena pro pozdější použití, existuje koncept {\bf programových proměnných} (nebo jen proměnné). Ty umožňují pojmenovat konkrétní úsek bytů v paměti, aby k nim bylo možné snadno přistupovat a ukládat do nich informace.
+ 
 
 \sec {Datové typy}
+{\bf Datový typ} je klíčový konstrukt, který v programu umožňuje přesně vyjádřit, jaký druh dat - například celé číslo, znak, nebo desetinné číslo - bude v paměti uložen a kolik místa k tomu bude potřeba. Datové typy také zajišťují, že se s daty správně pracuje. Díky tomu je například možné předejít situacím, kdy by se program snažil sečíst číslo a text, protože taková operace mezi tak rozdílnými typy dat prostě není definovaná. Jedná se tedy o mechanismus, který umožňuje programátorovi nejen optimalizovat práci s pamětí tak aby s ní zbytečně neplýtval, ale zároveň mu brání v tvorbě chyb nesprávním použitím operací na daný typ dat.
 
 
-\sec {Primitivní datové typy}
+\secc {Primitivní datové typy}
 V jazyce C jsou definované {\bf primitivní datové typy}, tedy datové typy které jsou přímo vestavěnné v kompilátoru jazyka C a nedají se dále rozdělit na jednodušší datové typy (viz. datové struktury). Mezi primitivní datové typy v jazyce C patří:
 
+\vskip 5mm
+\table{|l | r|| l | r |}{                                                                                                   \crl
+{\bf Datový typ}    & {\bf Bytová šírka} & {\bf Účel}         & {\bf Rozsah}                                                \crl
+{\bf char}          & 1 byte             & znak/celé číslo    & -128 až 127                                                 \crl
+{\bf short}         & 2 byty             & celé číslo         & -32 768 až 32 767                                           \crl
+{\bf int}           & 4 byty             & celé číslo         & -2 147 483 648 až 2 147 483 647                             \crl
+{\bf long}          & 8 bytů             & celé číslo         & $-2^{63}$ až $2^{63} - 1 $                                  \crl
+{\bf float}         & 4 byty             & desetinné číslo    & $\pm 1.8 \times 10^{-38}$ až  $\pm 3.4 \times 10^{38}$      \crl
+{\bf double}        & 8 bytů             & desetinné číslo    & $\pm 2.23 \times 10^{-308}$ až $\pm 1.80 \times 10^{308}$   \crl
+{\bf long double}   & 16 bytů            & desetinné číslo    & $\pm 3.4 \times 10^{-4932}$ až $\pm 1.1 \times 10^{4932}$   \crl
+{\bf void}          & 0 bytů             & žádná data         & N/A                                                         \crl
+}
+\caption/t Přehled primitivních datových typů
+\vskip 5mm
+
+Při rozhodování, který primitivní datový typ použít v jazyce C, je klíčové zvážit požadavky na paměť, rozsah hodnot a účel proměnné. Jednoduše řečeno, když nevíš jaký datový typ pro celá čísla použít, použij {\it int}, protože má obvykle vyvážený poměr mezi požadavky na paměť a rozsahem hodnot. Pokud ale pracujete s velkými čísly, použijte long, zatímco pro úsporu paměti u menších hodnot můžete zvolit short nebo dokonce char. Pro čísla s desetinnou částí je vhodné použít float nebo double, přičemž float je úspornější, zatímco double poskytuje vyšší přesnost. 
+
+\secc Datový typ void
+Datový typ {\bf void} představuje prázdný datový typ, který slouží k vyjádření {\bf absence dat}, a proto podle něj nelze vytvořit konkrétní proměnnou. V jazyce C se využívá pro speciální účely, jako je deklarace funkcí bez návratové hodnoty nebo definice univerzálních ukazatelů na paměť.
+
+\sec {Definice proměnné}
+Proces vytvoření proměnné se nazývá {\bf definice proměnné}. V základu proces definice proměnné spočívá v uvedení datového typu (podle druhu uložených dat), popisného identifikátoru a volitelně přiřazení inicializační hodnoty. 
+
+\begtt
+<datový typ> <identifikátor>;
+\endtt
+
+Například:
+
+\begtt
+int value;
+\endtt
+
+V tuto chvíli je pro danou proměnnou zarezervován úsek paměti v RAM, ale problém je že v této paměti mohla zůstat hodnota uložená z předchozího použití. To znamená, že v 99\% případů bude proměnná obsahovat nějakou náhodnou hodnotu. Použití nové proměnné bez nastavení počátení hodnoty je častou příčinou mnoha programových chyb a z tohoto důvodu je velmi doporučováno proměnnou zároveň inicializovat na počíteční hodnotu:
+
+\begtt
+<datový typ> <identifikator> = <hodnota>;
+\endtt
+
+například:
+
+\begtt
+int value = 42;
+\endtt
+
+Přitom se stanou dvě věci: 
 \begitems
-* {\bf char} - 1 bajt - znak / celé číslo
-* {\bf short} - 2 bajty - celé číslo
-* {\bf int} - 4 bajty - celé číslo
-* {\bf long} - 8 bajtů - celé číslo
-* {\bf long long} - 16 bajtů - celé číslo 
-* {\bf float} - 4 bajty - desetinné číslo
-* {\bf double} - 8 bajtů - desetinné číslo
-* {\bf long double} - 16 bajtů desetinné číslo  
+* {\bf Rezervace paměti}: Operační systém vyhradí v paměti RAM určitý počet paměťových buňek (v závislosti na použitém datovém typu).
+* {\bf Přiřazení jména}: Toto místo se propojí s předaným identifikátorem, aby bylo možné k vyhrazené paměti přistupovat, aniž by nutné si pamatovat složitou paměťovou adresu.
+\enditems 
+ 
+\sec Paměťová reprezentace proměnných
+Definice proměnné v jazyce C je pro systém pokynem k rezervování konkrétního počtu bajtů v operační paměti RAM. Každá proměnná tak získává svou unikátní adresu a vymezený prostor. V paměti RAM tak při vytvoření několika proměnných dojde k rozdělení paměti následujícím způsobem:
+
+\varbox{\Red} {int value = 42;}
+\varbox{\Blue} {char single\_character = 'a';}
+
+\vskip 5mm
+\picw=.9\hsize \centerline{\inspic {\imgpath ram_variable_1.png} }\nobreak\medskip
+\caption/f Schématické zobrazení RAM
+
+\sec Datové literály
+
+V jazyce C je běžné do programu přímo vkládat pevné hodnoty, jako jsou {\bf čísla}, {\bf znaky} nebo {\bf textové řetězce}. Tyto doslovně zapsané hodnoty se nazývají {\bf literály}.
+
+Literály se používají k inicializaci proměnných nebo k definování pevných pravidel v logice programu. Příkladem může být porovnání výsledku výpočtu s předem danou maximální nebo minimální hodnotou. 
+
+Při programování je klíčové rozlišovat různé druhy literálů, protože každý z nich má svůj datový typ, který určuje, jak s ním má počítač správně pracovat. V jazyce C se rozlišují čtyři základní typy: 
+\begitems
+* {\bf Celočíselné literály}
+* {\bf Desetinné literály}
+* {\bf Znakové literály}
+* {\bf Řetězcové literály}
 \enditems
 
-Při rozhodování, který primitivní datový typ použít v jazyce C, je klíčové zvážit požadavky na paměť, rozsah hodnot a účel proměnné. Jednoduše řeščeno, když nevíš jaký datový typ pro celá čísla použít, použij {\it int}, protože má obvykle vyvážený poměr mezi požadavky na paměť a rozsahem hodnot. Pokud ale pracujete s velkými čísly, použijte long nebo long long, zatímco pro úsporu paměti u menších hodnot můžete zvolit short nebo dokonce char. Pro čísla s desetinnou částí je vhodné použít float nebo double, přičemž float je úspornější, zatímco double poskytuje vyšší přesnost. Typ unsigned lze zvolit, pokud víte, že hodnota bude vždy kladná, čímž se maximalizuje rozsah. Správná volba datového typu nejen zlepší efektivitu programu, ale také zvýší jeho čitelnost a bezpečnost.
+Znakové literály jsou svázány s datovým typem {\bf char} a představují {\bf jeden znak} v jednoduchých uvozovkách.
+
+\ttline=0
+\begtt
+char single_character = 'a';
+\endtt
+\ttline=-1
+
+Celočíselné literály představují celá čísla a nejčastěji se vážou na datový typ {\bf int}. Protože jsou ale znaky v počítači rovněž reprezentovány pomocí čísel, je možné číselné literály reprezentovat také pomocí datového typu {\bf char}.
+
+\ttline=0
+\begtt
+int number = 42;
+char small_number = 27;
+\endtt
+\ttline=-1
+
+Desetinné literály představují {\bf číselné hodnoty s desetinným místem}. Tyto hodnoty se v jazyce C zapisují s {\bf desetinnou tečkou}. Desetinné literály se vážou s datovým typem {\bf double}  nebo {\bf float}.
+
+\ttline=0
+\begtt
+float decimal_number = 3.14;
+double long_decimal_number = 3.141592;
+\endtt
+\ttline=-1
+
+Řetězcové literály reprezentují sekvenci znaků tvořící text, který je uzavřen v dvojitých uvozovkách. Technicky se jedná o ukazatel na pole znaků.
+
+\ttline=0
+\begtt
+char * string = "Hello, World!";
+\endtt
+\ttline=-1
+
+\sec Znaméknové a bezznaménkové datové typy
+U celočíselných proměnných se rozlišují {\bf znaménkové} a {\bf bezznaménkové} varianty. Znaménková proměnná může nabývat kladných i záporných hodnot, zatímco bezznaménková proměnná reprezentuje pouze nezáporné hodnoty. Pro vytvoření bezznaménkové proměnné slouží klíčové slovo {\bf unsigned}, které se zapíše před použitý datový typ:
+
+\ttline=0
+\begtt
+unsigned int number = 42;
+unsigned char small_number = 150;
+\endtt 
+\ttline=-1
+
+V jazyce C existuje také klíčové slovo {\bf signed}, které se používá stejným způsobem jako klíčové slovo signed a slouží k vinucení, že datový typ má být znaménkový. V jazyce C jsou ale primitivní celočíselné datové typy char, short, int a long ve výchozím stavu vždy znaménkové a proto klíčové slovo signed není v praxi téměř využíváno.
+
+\secc Reprezentace bezznaménkvých proměnných v paměti
+Každý datový typ umožňuje rezervovat v paměti určitý počet bitů (respektive bytů), což určuje pevný rozsah hodnot, které do něj lze uložit. Například 8 bitů, které tvoří jeden byte, umožňuje reprezentovat hodnoty od 0 do 255. Čísla se ukládají v podobě kombinace jedniček a nul, přičemž každý z nich zabírá právě jeden bit.
+
+U znaménkových čísel se jeden bit vyhradí pro uložení znaménka, což snižuje maximální hodnotu, kterou lze uložit. Pokud ale záporná čísla nejsou potřeba, je možné použít bezznaménkový datový typ, kde se všechny bity využijí pro samotnou hodnotu. Tím se maximální rozsah kladných čísel téměř zdvojnásobí. Volba správného typu tak pomáhá efektivněji využít paměť a předejít chybám.
+
+\sec Konstantní proměnné
+V praxi často nastávají situace, kdy v paměti RAM potřebujeme vyhradit místo pro hodnotu, která se po celou dobu běhu programu {\bf nesmí změnit}. Takovým proměnným se říká konstantní proměnné a k tomuto účelu slouží klíčové slovo const, které se zapíše před vybraný datový typ proměnné, Postup definice proměnné je pak stejný jako u běžné proměnné:
+
+\begtt
+const int constant_number = 42;
+\endtt
+
+V paměti RAM se v podstatě nic nemění, ale kompilátor vyvolá chybu překladu při jakémkoli pokusu o změnu hodnoty konstatní proměnné. 
 
 
-\sec {Deklarace a definice proměnné}
+\sec {Typové přetečení}
 
-
-\sec {Znaménkový celočíselný datový typ}
 

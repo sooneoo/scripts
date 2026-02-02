@@ -1,15 +1,19 @@
 \chap {Proces překladu zdrojových kódů}
+Algoritmus je pouze myšlenkový popis jak řešit určitý problém, ale algoritmus je třeba převést do formy programu, který je možné spustit na {\bf procesoru}.  
+
+\sec {Fáze překladu} 
+
 Programy napsané v jazyce C (a dalších programovacích jazycích) jsou nejprve vytvořeny jako zdrojové kódy - textové soubory s příponou {\it .c} obsahující instrukce v srozumitelném formátu pro člověka. Tyto zdrojové kódy ale počítač neumí přímo vykonat. Aby se program stal spustitelným, musí projít procesem překladu (kompilace), který převede zdrojový kód do formátu, kterému procesor rozumí. Tento proces má několik fází.
 
 \vskip 5mm
 \picw=.9\hsize \centerline{\inspic {\imgpath compilation_process.png} }\nobreak\medskip
 \caption/f Proces překladu zdrojových kódů
 
-\sec {Fáze překladu} 
+
 Překlad zdrojového kódu do spustitelného programu zahrnuje několik kroků, které zajišťují správnost a efektivitu výsledného programu.
 
 \secc {Preprocesor (úprava zdrojového kódu)}
-První fáze překladu je preprocesing. V této fázi se zdrojové kódy předpřipraví pro proces kompilace. To obnáší odstranění komentárů a rozbalelení příkazů pro preprocesor, které začínající znakem \# (tzv. preprocesorové direktivy).
+První fáze překladu je preprocesing. V této fázi se zdrojové kódy předpřipraví pro proces kompilace. To obnáší odstranění komentářů a rozbalelení příkazů pro preprocesor, které začínající znakem \# (tzv. preprocesorové direktivy).
 
 \secc {Překlad (kompilace do strojově nezávislého kódu)}
 V této fázi překladač analyzuje a převádí zdrojový kód na tzv. {\bf objektový kód}. Objektový kód obsahuje strojový kód procesoru, ale nejedná se ještě o spustitelný kód.
@@ -18,16 +22,17 @@ V této fázi překladač analyzuje a převádí zdrojový kód na tzv. {\bf obj
 Linker (spojovací program) je zodpovědný za spojení všech objektových souborů a knihoven do jednoho spustitelného programu.
 
 
-\secc {Základní struktura projektu v jazyce C}
-Každý projekt v jazyce C se skládá minimálně z jednoho zdrojového souboru, který se standardně navývá {\it main.c}. V tomto souboru se nachází tzv. {\bf funkce main}, kterou začíná vykonávání spuštěného programu:
+\sec {Základní struktura projektu v jazyce C}
+Tento Program se nazývá {\bf Hello World}, je to nejjednodušší možný program, který má za úkol pouze vytisknout pozdrav "Hello World" do terminálové konzole a slouží k ověření, že prostředí pro programování funguje správně a zároveň pro prvotní seznámení se základními vlastnostmi programovacího jazyka. V tuto chvíli není potřeba rozumět co který řádek kódu dělá, ale jsou zde obsaženy všechny základní stavební kameny jazyka C a díky tomu je možné si vytvořit představu o tom jak se s tímto jazykem bude pracovat.
 
-\begtt
+\ttline=0 \begtt 
 #include <stdio.h>
+int main(void) { 
+    printf("Hello World\n"); 
+    return 0; 
+} 
+\endtt \ttline=-1
 
-int main(void) {
-    printf("Hello World\n");
-    return 0;
-}
-\endtt
 
-Tento kód reprezentuje nejjednodušší prorgam v jazyce C, který se nazývá {\bf Hello World}. Tento program se používá pro představení základní struktury programovacího jazyka a procesu spuštění. Výsledkem spuštění tohoto programu je pak vypsání hlášky "Hello World" do terminálového okna. 
+
+

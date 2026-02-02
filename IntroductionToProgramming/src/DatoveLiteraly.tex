@@ -1,0 +1,50 @@
+\chap Konstanty a datové literály
+V jazyce C je běžné do programu přímo vkládat pevné hodnoty, jako jsou {\bf čísla}, {\bf znaky} nebo {\bf textové řetězce}. Tyto doslovně zapsané hodnoty se nazývají {\bf literály}.
+
+Literály se používají k inicializaci proměnných nebo k definování pevných pravidel v logice programu. Příkladem může být porovnání výsledku výpočtu s předem danou maximální nebo minimální hodnotou. 
+
+\sec Druhy datových literálů
+Při programování je klíčové rozlišovat různé druhy literálů, protože každý z nich má svůj datový typ, který určuje, jak s ním má počítač správně pracovat. V jazyce C se rozlišují čtyři základní typy: 
+\begitems
+* {\bf Celočíselné literály}
+* {\bf Desetinné literály}
+* {\bf Znakové literály}
+* {\bf Řetězcové literály}
+\enditems
+
+Znakové literály jsou svázány s datovým typem {\bf char} a představují {\bf jeden znak} v jednoduchých uvozovkách.
+
+\ttline=0
+\begtt
+char single_character = 'a';
+\endtt
+\ttline=-1
+
+Celočíselné literály představují celá čísla a nejčastěji se vážou na datový typ {\bf int}. Protože jsou ale znaky v počítači rovněž reprezentovány pomocí čísel, je možné číselné literály reprezentovat také pomocí datového typu {\bf char}.
+
+\ttline=0
+\begtt
+int number = 42;
+char small_number = 27;
+\endtt
+\ttline=-1
+
+Desetinné literály představují {\bf číselné hodnoty s desetinným místem}. Tyto hodnoty se v jazyce C zapisují s {\bf desetinnou tečkou}. Desetinné literály se vážou s datovým typem {\bf double}  nebo {\bf float}.
+
+\ttline=0
+\begtt
+float decimal_number = 3.14;
+float long_decimal_number = 3.141592;
+\endtt
+\ttline=-1
+
+Řetězcové literály reprezentují sekvenci znaků tvořící text, který je uzavřen v dvojitých uvozovkách. Technicky se jedná o ukazatel na pole znaků.
+
+\ttline=0
+\begtt
+char * string = "Hello, World!";
+\endtt
+\ttline=-1
+
+
+

@@ -4,25 +4,47 @@
 \typosize[12/16]
 \margins/1 a4 (2.5,2.5,2,2)cm
 
+
+% Definice: \varbox{BARVA}{KÓD}
+\def\varbox#1#2{%
+   \medskip
+   \def\currentcolor{#1}%
+   \setbox0=\hbox{\tt #2}% Změříme šířku textu
+   \leavevmode
+   {\localcolor\currentcolor
+   \frame{\kern5pt \vbox{\kern2pt \box0 \kern2pt}\kern5pt}}%
+   \medskip
+}
+
+% Pokud potřebujete víceřádkový kód s pevnou šířkou:
+\def\codeblock#1#2{%
+   \medskip
+   {\localcolor#1
+   \frame{\kern10pt \vbox{\kern5pt \hsize=5cm \tt #2 \kern5pt}\kern10pt}}
+   \medskip
+}
+
+
+
 \def\rootpath{./src/}
 \def\imgpath{./img/}
-
-%zvíraznít fialově a víc názornýchobrázků
 
 \include {\rootpath Title}
 \include {\rootpath Uvod}
 \include {\rootpath ZakladyAlgoritmizace}
-\include {\rootpath JazykC}
-\include {\rootpath PripravaProstredi}
+%\include {\rootpath JazykC}
 \include {\rootpath PrekladZdrojovychKodu}
-\include {\rootpath ReprezentaceDatVPC}
+\include {\rootpath PripravaProstredi}
+%\include {\rootpath ReprezentaceDatVPC}
+\include {\rootpath Komentare}
+\include {\rootpath Identifikatory}
 \include {\rootpath Promenne}
+\include {\rootpath Operatory}
 \include {\rootpath RidiciKonstrukce}
 \include {\rootpath Funkce}
 \include {\rootpath DatoveStruktury}
 \include {\rootpath Ukazatele}
 \include {\rootpath Preprocesor}
-\include {\rootpath SouboryARetezce}
 
 \bye
 

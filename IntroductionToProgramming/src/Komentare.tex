@@ -1,0 +1,63 @@
+\chap {Komentáře}
+
+Psaní kódu je kreativní proces, a stejně jako každá tvůrčí práce, může se stát s postupem času složitější. Někdy se i ten nejsrozumitelnější kód stane obtížným na pochopení, zvláště když na něm pracuje více lidí. Z tohoto důvodu každý programovací jazyk obsahuje konstrukci, která umožňuje vkládat informativní poznámky do zdrojového kódu, díky kterým je možné vytvořit srozumitelnější a čitelnější kód.
+
+
+\sec {Dva druhy komentářů}
+
+Komentáře jsou části kódu, které překladač zcela ignoruje. Slouží jako poznámky a vysvětlivky pro udržení srozumitelnosti kódu, nebo pro tvorbu komplexní dokumentace. V jazyce C rozlišujeme dva typy: {\bf řádkové komentáře} a {\bf blokové komentáře}
+
+\secc {Řádkový komentář}
+
+Řádkový komentář se vytváří pomocí sekvence dvou lomítek a umožňuje vytvářet komentář v rámci jednoho řádku. Důležité je že řádkový komentář je definovaný od zahajovací sekvence lomítek až do konce řádku:
+
+\ttline=0
+\begtt
+// this is line comment
+\endtt
+\ttline=-1
+
+\secc {Blokový komentář}
+Blokový komentář se vytváří pomocí uvozovací sekvence {\it /*} a ukončovací sekvence {\it */} a cokoliv definované uvnitř je překladačem považováno za komentář nehledě na odřádkování.
+
+\ttline=0
+\begtt
+/*
+this is
+block comment
+defined on multiple lines
+*/
+\endtt
+\ttline=-1
+
+\sec {Správné použití komentářů}
+Komentáře jsou mocný nástroj, který by měl každý programátor používat již od začátku. Přispívají k efektivitě a kvalitě kódu, ovšem pokud se používají nesprávně, mohou naopak působit matoucím dojmem a snižovat čitelnost výsledného kódu. 
+
+Komentáře by se měly do zdrojových kódů zapisovat ideálně v anglickém jazyce, protože díky tomu jim bude rozumět i někdo kdo nemluví česky. Rozhodně nemíchat české a anglické komentáře!
+
+Nejdůležitější pravidlo zní: {\it Nekomentuj, co kód dělá, ale proč to dělá. Pokud je kód sám o sobě srozumitelný, komentář není potřeba}. 
+
+Vždy je snahou spíš psát takový kód, který je srozumitelný sám o sobě a nevyžaduje komentáře a komentovat pouze to co kód sám nedokáže říct. 
+
+\break 
+\sec {Příklad použití komentářů}
+
+\ttline=0
+\begtt
+/*
+Overview of the source code:
+HelloWorld project demonstrating the basic features of a
+programming language
+*/
+
+#include <stdio.h>
+
+int main(void) {
+    printf("Hello World\n"); // printing message to console
+    return 0;
+} 
+\endtt
+\ttline=-1
+
+
+

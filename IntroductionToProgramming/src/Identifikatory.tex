@@ -1,0 +1,39 @@
+\chap Identifikátory
+Identifikátor je v kontextu programování název, který zastupuje určitou konstrukci (proměnné, funkce nebo datové struktury) a na které se lze ve zdrojovém kódu odkazovat. To umožňuje vytvářet intuitivní a dobře čitelnou strukturu kódu, kterou lze snáze zpětně číst a chápat jeho účel. Dobře zvolená jména identifikátorů tak tvoří jedno z měřítek, které oddělují dobře čitelný kód od "rozsypaného čaje". Při psaní kódu je tak dobré se zaměřit nejen na pravidla jak identifikátory v daném programovacím jazyce zapisovat, ale také na to jak dobře popisují svůj účel.
+
+\sec Pravidla zápisu identifikátorů v jazyce C
+Názvy identifikátorů se v jazyce C musí řídit sadou jednoduchých pravidel, protože použití nesprávného formátu způsobí chybu při překladu programu.
+
+\begitems
+* Identifikátor {\bf může} obsahovat pouze velká nebo malá písmena, číslice a nebo znak podtržítko.
+* Identifikátor také {\bf musí} vždy začínat písmenem nebo podtržítkem. Nikdy nesmí začínat číslicí.
+* Identifikátor {\bf nesmí} být klíčové slovo, které je rezervováno jazykem C. Těmito klíčovými slovy jsou například názvy datových typů, if, for, while a další.
+\enditems
+
+Jazyk C je tzv. {\bf case-sensitive}, to znamená, že záleží na velikosti písmen v identifikátoru. Z pohledu jazyka C jsou tedy názvy {\bf name} a {\bf Name} dva různé identifikátory.
+
+\sec Jak vytvořit dobrý identifikátor
+
+Při vytváření názvu nového identifikátoru je dobré se řídit několika zásadami, které pomohou vytvořit srozumitelný a čitelný kód. Název identifikátoru by měl být {\bf jednoznačný}, {\bf unikátní} a {\bf srozumitelně} popisovat, co dělá nebo co obsahuje.  Zároveň je standardem v programátorské komunitě {\bf používat} pro názvy identifikátorů {\bf angličtinu}. Důvod je ten, že se kód stane univerzálním a snadno srozumitelným pro kohokoli, kdo jej v budoucnu uvidí. Například:
+
+\begtt
+hit_counter, cursor_position, player_state_update
+\endtt
+
+Zkratky jako {\bf tmp} nebo {\bf cnt} mohou sice ušetřit pár znaků, ale často {\bf snižují čitelnost kódu}. Pokud to není naprosto nezbytné, je dobré používat celá slova. Výjimkou mohou být všeobecně známé zkratky jako jsou například {\bf ID}, {\bf min}, {\bf max} a podobně.
+\newpage
+
+\sec Styl zápisu identifikátorů
+I když to není vyloženě špatně a občas se tomu nelze vyhnout, je dobré používat v rámci projektu {\bf jednotný styl zápisu identifikátorů}. Nejběžnější styly pro pojmenování jsou {\bf camel case} a {\bf snake case}. Camel case začíná malým písmenem, každé další slovo začíná velkým písmenem. 
+
+\begtt
+camelCase
+\endtt
+
+V případě snake case pak všechna slova jsou malá a oddělují se pomocí znaku podtržítko.
+
+\begtt
+snake_case
+\endtt
+
+

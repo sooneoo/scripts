@@ -1,1 +1,43 @@
 \chap {Řídící konstrukce}
+{\bf Řídicí konstrukce} jsou základní nástroje jazyka C, které slouží k popisu algoritmu. Zatímco proměnné představují data, řídicí konstrukce určují logiku, jakou se s těmito daty bude pracovat.
+
+\sec {Blok kódu a rozsah platnosti}
+{\bf Blok kódu}, vymezený složenými závorkami $\{$ a $\}$, představuje v programování základní realizaci řídicí konstrukce sekvence. Jde o logický celek, ve kterém se instrukce vykonávají postupně. Tento strukturální prvek zároveň definuje ztv {\bf rozsah platnosti} (scope), který ovlivňuje životnost proměnných, tedy úsek kódu ve kterém lze na danou proměnnou odkazovat. 
+
+Pokud se vytvoří proměnná {\it number} uvnitř daného bloku
+
+\ttline=0
+\begtt
+{
+int number = 42;
+...
+}
+\endtt
+\ttline=-1
+
+K této proměnné lze pak přistupovat pouze uvnitř tohoto bloku ve kterém vznikla, za hranicemi bloku proměnná {\bf number} již zaniká a nelze s ní již dál pracovat!
+
+\secc Vnořený blok kódu
+Sekvence příkazů uvnitř bloku tvoří uzavřený kontext. Pokud se do sekvence vloží další dvojice složených závorek, vytvoří se tak {\bf vnořený blok}. Tento mechanismus umožňuje systému efektivně členit sekvence kódu se kterými lze pracovat jako s celkem.
+
+\sec Větvení programu
+
+
+\secc Konstrukce if-else
+
+
+\secc Konstrukce switch-case
+
+
+\sec Iterace programu
+
+
+\secc Smyčka for
+
+
+\secc Smyčka while
+
+
+\sec Rekurze
+
+
